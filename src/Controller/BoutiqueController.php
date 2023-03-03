@@ -39,4 +39,19 @@ class BoutiqueController extends AbstractController
             'produits' => $produits,
         ]);
     }
+
+    #[Route(
+        path: '/{_locale}/boutique/recherche/{recherche}', 
+        name: 'app_boutique_recherche',
+        requirements: ['locale' => '%app.supported_locales%', 'recherche' => ".+"],
+        defaults: ['recherche' => '']
+        )]
+    public function recherche(BoutiqueService $boutiqueService, string $recherche): Response
+    {
+        $produits = $boutiqueService->findProduitsByLibelleOrTexte($recherche);
+        return $this->render('boutique/recherche.html.twig', [
+            'produits' => $produits,
+            'recherche' => $recherche,
+        ]);
+    }
 }

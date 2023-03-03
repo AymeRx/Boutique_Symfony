@@ -24,10 +24,66 @@
 				</a>
 			</li>
 			<li class="nav-item">
+				<a class="nav-link" href="/mi5/fr/panier">
+					<i class="fas fa-shopping-cart"></i>
+					1 Produit(s)
+				</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="{{path("app_default_contact")}}">
 					<i class="fas fa-comments"></i>
 					Contact
 				</a>
+			</li>
+			<li class="nav-item dropdown">
+				<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-user"></i>
+					Connexion
+				</span>
+				<div class="dropdown-menu" aria-labelledby="dropdown01">
+					<a class="dropdown-item " href="/mi5/fr/login">
+						Connexion/Inscription
+					</a>
+					<a class="dropdown-item disabled" href="/mi5/fr/usager/compte">
+						Mon Compte
+					</a>
+					<a class="dropdown-item disabled" href="/mi5/fr/usager/commandes">
+						Mes Commandes
+					</a>
+					<a class="dropdown-item disabled" href="/mi5/fr/logout">
+						Déconnexion
+					</a>
+				</div>
+			</li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" id="searchString" type="text" placeholder="Chercher Produits..." aria-label="Search" data-form-type="">
+			<button class="btn btn-secondary my-2 my-sm-0" id="searchButton" data-form-type="">
+				<i class="fas fa-search"></i>
+			</button>
+		</form>
+		<ul class="navbar-nav my-0">
+			<li class="nav-item dropdown">
+				<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					EUR
+				</span>
+				<div class="dropdown-menu" aria-labelledby="dropdown02" style="min-width: 5rem;">
+					<a class="dropdown-item" href="/mi5/fr/changer_monnaie/CAD/home/%7B%22_locale%22:%22fr%22%7D">
+						CAD
+					</a>
+					<a class="dropdown-item" href="/mi5/fr/changer_monnaie/USD/home/%7B%22_locale%22:%22fr%22%7D">
+						USD
+					</a>
+					<a class="dropdown-item" href="/mi5/fr/changer_monnaie/GBP/home/%7B%22_locale%22:%22fr%22%7D">
+						GBP
+					</a>
+					<a class="dropdown-item" href="/mi5/fr/changer_monnaie/PHP/home/%7B%22_locale%22:%22fr%22%7D">
+						PHP
+					</a>
+					<a class="dropdown-item" href="/mi5/fr/changer_monnaie/IDR/home/%7B%22_locale%22:%22fr%22%7D">
+						IDR
+					</a>
+				</div>
 			</li>
 		</ul>
 		<ul class="navbar-nav my-0">
@@ -49,3 +105,4 @@
 		</ul>
 	</div>
 </nav>
+
