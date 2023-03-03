@@ -1,0 +1,23 @@
+{# barre de navigation  #}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="{{path("app_default")}}">
+        <i class="fas fa-home"></i> Ma Boutique
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{path("app_boutique_index")}}">
+                    <i class="fas fa-store"></i> Boutique
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{path("app_default_contact")}}">
+                    <i class="fas fa-comments"></i> Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

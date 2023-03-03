@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+
+	<div
+		class="main-div">
+		<!-- debut du block body -->
+		<div class="card col-md-6 offset-3">
+			<div class="card-header">
+				<h1>
+					<i class="fas fa-comments"></i>
+					Contact</h1>
+			</div>
+			<div class="card-body">
+				<div class="card clickable" onclick="window.open('https://www-info.iut2.univ-grenoble-alpes.fr/licence-pro-mi/')">
+					<img src="{{ asset('images/iut2_info.png') }}" class="card-img" alt="logo IUT2">
+					<div class="card-body">
+						<h1 class="card-title">
+							<i class="fas fa-code"></i>
+							Licence Pro MI SIMO</h1>
+						<h2 class="card-title">
+							<i class="fab fa-symfony"></i>
+							Module MI5</h2>
+						<p>
+							<i class="far fa-copyright"></i>
+							Ay. Surre, 2022/23</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fin du block body -->
+	</div>
+
+
+{% endblock %}

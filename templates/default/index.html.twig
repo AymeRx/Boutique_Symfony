@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!
+{% endblock %}
+
+{% block body %}
+
+	{# inserer l'image dans public/images/epicerie.jpg #}
+	{#   #}
+		<div
+		class="main-div"> <!-- debut du block body -->
+		<div class="card col-md-12">
+			<div class="card-header">
+				<h1>
+					<i class="fas fa-home"></i>
+					Démo Symfony</h1>
+			</div>
+			<div class="card-body">
+				<div class="card clickable" onclick="location = '/mi5/fr/boutique'">
+					<img src="{{ asset('images/epicerie.jpg') }}" alt="epicerie" class="card-img-top" alt="Logo Boutique Symfony">
+					<div class="card-body">
+						<p class="card-text">
+							<i>Ici rien à vendre, c'est juste pour apprendre</i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fin du block body -->
+	</div>
+
+{% endblock %}
