@@ -11,7 +11,10 @@
 			<div class="card-header">
 				<h1>
 					<i class="fas fa-store"></i>
-					Rayon "{{ categorie.libelle }}" : {{ produits|length }} Produit(s)</h1>
+					{% trans %}boutique.rayon.rayon{% endtrans %}
+					"{{ categorie.libelle }}" : {{ produits|length }} 
+					{% trans %} boutique.rayon.produit {% endtrans %}
+				</h1>
 			</div>
 			<div class="card-body row">
             {% for produit in produits %}

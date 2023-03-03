@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="7kCCf6s" resname="boutique.index.boutique">
+        <source>boutique.index.boutique</source>
+        <target>Store</target>
+      </trans-unit>
+      <trans-unit id="7DqJj0X" resname="boutique.index.rayons">
+        <source>boutique.index.rayons</source>
+        <target>Categories</target>
+      </trans-unit>
+      <trans-unit id="06oipFM" resname="boutique.rayon.rayon">
+        <source>boutique.rayon.rayon</source>
+        <target>Category</target>
+      </trans-unit>
+      <trans-unit id="5ed8VPm" resname="boutique.rayon.produit">
+        <source>boutique.rayon.produit</source>
+        <target>Item(s)</target>
+      </trans-unit>
+      <trans-unit id="k1qKt3A" resname="default.index.titre_accueil">
+        <source>default.index.titre_accueil</source>
+        <target>Symfony Demo</target>
+      </trans-unit>
+      <trans-unit id="ox0QmLS" resname="default.index.texte_accueil">
+        <source>default.index.texte_accueil</source>
+        <target>We don't sell anything, we just want to learn</target>
+      </trans-unit>
+      <trans-unit id="9O83ZGK" resname="templates.navbar.nom_boutique">
+        <source>templates.navbar.nom_boutique</source>
+        <target>My Store</target>
+      </trans-unit>
+      <trans-unit id="ZhpTauS" resname="templates.navbar.boutique">
+        <source>templates.navbar.boutique</source>
+        <target>Store</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -13,14 +13,17 @@
 			<div class="card-header">
 				<h1>
 					<i class="fas fa-home"></i>
-					Démo Symfony</h1>
+					{%trans%} default.index.titre_accueil {%endtrans%}
+				</h1>
 			</div>
 			<div class="card-body">
-				<div class="card clickable" onclick="location = '/mi5/fr/boutique'">
+				<div class="card clickable">
 					<img src="{{ asset('images/epicerie.jpg') }}" alt="epicerie" class="card-img-top" alt="Logo Boutique Symfony">
 					<div class="card-body">
 						<p class="card-text">
-							<i>Ici rien à vendre, c'est juste pour apprendre</i>
+							<i>
+								{%trans%} default.index.texte_accueil {%endtrans%}
+							</i>
 						</p>
 					</div>
 				</div>

@@ -6,10 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\BoutiqueService;
+use PharIo\Manifest\Requirement;
 
 class BoutiqueController extends AbstractController
 {
-    #[Route('/boutique', name: 'app_boutique_index')]
+    #[Route(
+        path:'/{_locale}/boutique', 
+        name: 'app_boutique_index',
+        requirements: ['_locale' => '%app.supported_locales%'],
+        defaults: ['_locale' => 'fr']
+        )]
     public function index(BoutiqueService $boutiqueService): Response
     {
         $categories = $boutiqueService->findAllCategories();
@@ -19,7 +25,11 @@ class BoutiqueController extends AbstractController
     }
 
 
-    #[Route('/rayon/{idCategorie}', name: 'app_boutique_rayon')]
+    #[Route(
+        path: '/{_locale}/rayon/{idCategorie}', 
+        name: 'app_boutique_rayon',
+        requirements: ['locale' => '%app.supported_locales%']
+        )]
     public function rayon(BoutiqueService $boutiqueService, int $idCategorie): Response
     {
         $categorie = $boutiqueService->findCategorieById($idCategorie);

@@ -8,7 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-    #[Route('/', name: 'app_default')]
+    #[Route(
+        path : '/{_locale}', 
+        name: 'app_default',
+        requirements: ['_locale' => '%app.supported_locales%'],
+        defaults: ['_locale' => 'fr']
+        )]
     public function index(): Response
     {
         return $this->render('default/index.html.twig', [
@@ -16,7 +21,11 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/contact', name: 'app_default_contact')]
+    #[Route(
+        path: '/{_locale}/contact', 
+        name: 'app_default_contact',
+        requirements: ['_locale' => '%app.supported_locales%'],
+    )]
     public function contact(): Response
     {
         return $this->render('contact.html.twig', [
