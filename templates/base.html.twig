@@ -22,10 +22,21 @@
 	</head>
 	<body>
 		<!-- debut de la navbar -->
-		{% include "navbar.html.twig" %}
+		{{
+            render(
+                controller(
+                    'App\\Controller\\PanierController::nombreProduits',
+					{
+                        'route': app.request.attributes.get('_route'),
+                        'locale': app.request.attributes.get('_locale'),
+						'params': app.request.attributes.get('_route_params')
+                    }
+                    )
+            )
+        }}
+		{# {% include "navbar.html.twig" %} #}
 		<!-- fin de la navbar -->
-		<main role="main" class="container-fluid">
-			<div class="row">
+			<main role="main" class="container-fluid"> <div class="row">
 				<div class="col-md-10">
 					<div
 						class="main-div">
@@ -45,19 +56,19 @@
 		<script src="{{ asset('js/bootstrap-4/bootstrap.bundle.min.js') }}"></script>
 		<script>
 			$(function () { // Activation tooltip bootstrap sur la page
-            $('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle="tooltip"]').tooltip();
 
-            $(function () { // Activation tooltip bootstrap sur la page
-            $('[data-toggle="tooltip"]').tooltip();
-            // Comportement du bouton de recherche
-            $("#searchButton").click(function () {
-            var searchString = $('#searchString').val().trim();
-            location = ('{{ path("app_boutique_recherche", {'recherche':''})}}' + "/" + searchString);
-            return false;
-            });
-            });
+$(function () { // Activation tooltip bootstrap sur la page
+$('[data-toggle="tooltip"]').tooltip();
+// Comportement du bouton de recherche
+$("#searchButton").click(function () {
+var searchString = $('#searchString').val().trim();
+location = ('{{ path("app_boutique_recherche", {'recherche':''}) }}' + "/" + encodeURIComponent(searchString));
+return false;
+});
+});
 
-            });
+});
 		</script>
 		<!-- debut du block js -->
 		{% block js %}{%  endblock %}

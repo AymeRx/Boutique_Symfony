@@ -30,7 +30,7 @@ class PanierService
         $total = 0;
         foreach ($this->panier as $idProduit => $quantite) {
             $produit = $this->boutique->findProduitById($idProduit);
-            $total += $produit->getPrix() * $quantite;
+            $total += $produit->prix * $quantite;
         }
         return $total;
   

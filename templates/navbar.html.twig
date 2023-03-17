@@ -1,6 +1,6 @@
-{% set route = app.request.attributes.get('_route') %}
+{# {% set route = app.request.attributes.get('_route') %}
 {% set locale = app.request.attributes.get('_locale') %}
-{% set params = app.request.attributes.get('_route_params') %}
+{% set params = app.request.attributes.get('_route_params') %} #}
 
 {# barre de navigation  #}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -24,9 +24,9 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/mi5/fr/panier">
+				<a class="nav-link" href="{{path("app_panier_index")}}">
 					<i class="fas fa-shopping-cart"></i>
-					1 Produit(s)
+					{{nombreProduits}}
 				</a>
 			</li>
 			<li class="nav-item">
