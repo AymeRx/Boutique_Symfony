@@ -7,6 +7,7 @@ use App\Service\BoutiqueService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
 
 class PanierController extends AbstractController
 {
@@ -25,9 +26,9 @@ class PanierController extends AbstractController
     }
 
     #[Route('/{_locale}/panier/ajouter/{idProduit}/{quantite}', name: 'app_panier_ajouter', requirements: ['idProduit' => '\d+', 'quantite' => '\d+'])]
-    public function ajouter(PanierService $panierService, BoutiqueService $boutiqueService, $idProduit, $quantite): Response
+    public function ajouter(PanierService $panierService, ManagerRegistry $doctrine, $idProduit, $quantite): Response
     {
-        $produit = $boutiqueService->findProduitById($idProduit);
+        $produit = $doctrine->getManager()->getRepository('App\Entity\Produit')->find($idProduit);
         if (!$produit) {
             throw $this->createNotFoundException('Produit non trouvé');
         }
@@ -37,9 +38,9 @@ class PanierController extends AbstractController
     }
 
     #[Route('/{_locale}/panier/enlever/{idProduit}/{quantite}', name: 'app_panier_enlever', requirements: ['idProduit' => '\d+'])]
-    public function enlever(PanierService $panierService, BoutiqueService $boutiqueService, $idProduit, $quantite): Response
+    public function enlever(PanierService $panierService, ManagerRegistry $doctrine, $idProduit, $quantite): Response
     {
-        $produit = $boutiqueService->findProduitById($idProduit);
+        $produit = $doctrine->getManager()->getRepository('App\Entity\Produit')->find($idProduit);
         if (!$produit) {
             throw $this->createNotFoundException('Produit non trouvé');
         }
@@ -49,9 +50,9 @@ class PanierController extends AbstractController
     }
 
     #[Route('/{_locale}/panier/supprimer/{idProduit}', name: 'app_panier_supprimer', requirements: ['idProduit' => '\d+'])]
-    public function supprimer(PanierService $panierService, BoutiqueService $boutiqueService, $idProduit): Response
+    public function supprimer(PanierService $panierService, ManagerRegistry $doctrine, $idProduit): Response
     {
-        $produit = $boutiqueService->findProduitById($idProduit);
+        $produit = $doctrine->getManager()->getRepository('App\Entity\Produit')->find($idProduit);
         if (!$produit) {
             throw $this->createNotFoundException('Produit non trouvé');
         }

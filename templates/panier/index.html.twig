@@ -52,27 +52,27 @@
 									</tr>
 								</thead>
 								<tbody>
-									{% for produit in contenuPanier %}
+									{% for item in contenuPanier %}
 										<tr>
-											<td><img src="{{ asset(produit.produit.visuel) }}" class="cart-img-produit" alt="{{ produit.produit.libelle }}"></td>
+											<td><img src="{{ asset(item.produit.visuel) }}" class="cart-img-produit" alt="{{ item.produit.libelle }}"></td>
 											<td>
-												<a href="{{ path('app_boutique_rayon', {'idCategorie': produit.produit.idCategorie}) }}">
-													<b>{{ produit.produit.libelle }}</b>
+												<a href="{{ path('app_boutique_rayon', {'idCategorie': item.produit.categorie.id}) }}">
+													<b>{{ item.produit.libelle }}</b>
 												</a>
 											</td>
-											<td class="text-right">{{ produit.produit.prix|number_format(2, ',', ' ')}}€</td>
+											<td class="text-right">{{ item.produit.prix|number_format(2, ',', ' ')}}€</td>
 											<td>
-												<a href="{{ path('app_panier_enlever', {'idProduit': produit.produit.id, 'quantite':1}) }}">
+												<a href="{{ path('app_panier_enlever', {'idProduit': item.produit.id, 'quantite':1}) }}">
 													<i class="fas fa-minus-square text-muted"></i>
 												</a>
-												{{ produit.quantite }}
-												<a href="{{ path('app_panier_ajouter', {'idProduit': produit.produit.id, 'quantite':1}) }}">
+												{{ item.quantite }}
+												<a href="{{ path('app_panier_ajouter', {'idProduit': item.produit.id, 'quantite':1}) }}">
 													<i class="fas fa-plus-square text-muted"></i>
 												</a>
 											</td>
-											<td class="text-right">{{ produit.produit.prix * produit.quantite}}€</td>
+											<td class="text-right">{{ item.produit.prix * item.quantite}}€</td>
 											<td>
-												<a href="{{ path('app_panier_supprimer', {'idProduit': produit.produit.id}) }}">
+												<a href="{{ path('app_panier_supprimer', {'idProduit': item.produit.id}) }}">
 													<i class="fas fa-trash text-muted" data-toggle="tooltip" title="" data-placement="right" data-html="true" data-original-title="Supprimer"></i>
 												</a>
 											</td>
