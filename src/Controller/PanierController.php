@@ -84,6 +84,19 @@ class PanierController extends AbstractController
     }
 
 
+    // #[Route('/{_locale}/panier/commander', name: 'app_panier_commander')]
+    // public function commander(PanierService $panier, ManagerRegistry $doctrine): Response
+    // {
+    //     //$user = $this->getUser();
+    //     //Elle utilisera (temporairement) l’usager d’identifiant égal à 1 comme propriétaire de la commande 
+    //     $user = $this->getDoctrine()->getRepository(Usager::class)->find(1);
+    //     $commande = $panier->panierToCommande($user);        
+    //     return $this->render('panier/commande.html.twig', [
+    //         'usager' => $user
+    //     ]);
+    // }
+
+
     #[Route('/{_locale}/panier/commander', name: 'app_panier_commander')]
     public function commander(PanierService $panier, ManagerRegistry $doctrine): Response
     {
@@ -91,8 +104,17 @@ class PanierController extends AbstractController
         //Elle utilisera (temporairement) l’usager d’identifiant égal à 1 comme propriétaire de la commande 
         $user = $this->getDoctrine()->getRepository(Usager::class)->find(1);
         $commande = $panier->panierToCommande($user);        
+        return $this->redirectToRoute('app_panier_commandes');
+    }
+
+    #[Route('/{_locale}/panier/commande', name: 'app_panier_commandes', requirements:['_locale'=> '%app.supported_locales%'])]
+    public function afficheCommande(PanierService $panier, ManagerRegistry $doctrine): Response
+    {   
+        // $user = $this->getUser();
+        //Elle utilisera (temporairement) l’usager d’identifiant égal à 1 comme propriétaire de la commande
+        $user = $this->getDoctrine()->getRepository(Usager::class)->find(1);
         return $this->render('panier/commande.html.twig', [
             'usager' => $user
-        ]);
+        ]); 
     }
 }
