@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Usager;
+use App\Entity\Commande;
 use App\Service\PanierService;
 use App\Service\BoutiqueService;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 class PanierController extends AbstractController
 {
@@ -81,4 +84,15 @@ class PanierController extends AbstractController
     }
 
 
+    #[Route('/{_locale}/panier/commander', name: 'app_panier_commander')]
+    public function commander(PanierService $panier, ManagerRegistry $doctrine): Response
+    {
+        //$user = $this->getUser();
+        //Elle utilisera (temporairement) l’usager d’identifiant égal à 1 comme propriétaire de la commande 
+        $user = $this->getDoctrine()->getRepository(Usager::class)->find(1);
+        $commande = $panier->panierToCommande($user);        
+        return $this->render('panier/commande.html.twig', [
+            'usager' => $user
+        ]);
+    }
 }
