@@ -35,7 +35,17 @@
 						</h1>
 						<div class="col-md-12 btn-group btn-group-lg" role="group">
 							<a class="btn btn-primary" href="{{ path('app_boutique_index') }}">Continuer les Courses</a>
-							<a class="btn btn-primary" href="{{ path('app_panier_commander')}}">Passer la Commande</a>
+							{# si l'utilisateur est connecté #}
+							{% if app.user %}
+								<a class="btn btn-primary" href="{{ path('app_panier_commander')}}">Passer la Commande</a>
+							{% else %}
+								{# desactiver le bouton #}
+								<a class="btn btn-primary disabled" href="{{ path('app_panier_commander')}}">Connexion requise</a>
+								{# <br>
+								<small>
+									<a class="btn btn-sm btn-link" href="{{ path('app_login') }}">Connexion</a>
+								</small> #}
+							{% endif %}
 						</div>
 					</div>
 					<div class="card-body">

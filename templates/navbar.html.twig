@@ -36,24 +36,53 @@
 				</a>
 			</li>
 			<li class="nav-item dropdown">
-				<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<i class="fas fa-user"></i>
-					Connexion
-				</span>
-				<div class="dropdown-menu" aria-labelledby="dropdown01">
+				{# si un utilisateur est connecté #}
+				{% if app.user %}
+					<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user"></i>
+						{{app.user.username}}
+					</span>
+					<div class="dropdown-menu" aria-labelledby="dropdown01">
 					<a class="dropdown-item " href="{{path("app_usager_new")}}">
-						Connexion/Inscription
+						Inscription
 					</a>
-					<a class="dropdown-item" href="{{path("app_usager_index")}}">
-						Mon Compte
+					<a class="dropdown-item" href="{{path("app_login")}}">
+						Connexion
 					</a>
-					<a class="dropdown-item disabled" href="/mi5/fr/usager/commandes">
+					{# si l'utilisateur est connecté, affiche son nom #}
+						{% if app.user %}
+							<a class="dropdown-item" href="{{path("app_usager_index")}}">
+								Mon Compte
+							</a>
+						{% else %}
+							<a class="dropdown-item disable" href="{{path("app_usager_index")}}">
+								Mon Compte
+							</a>
+						{% endif %}
+					<a class="dropdown-item" href="{{path("app_panier_commandes")}}">
 						Mes Commandes
 					</a>
-					<a class="dropdown-item disabled" href="/mi5/fr/logout">
-						Déconnexion
+					{# si l'utilisateur est connecté #}
+					{% if app.user %}
+						<a class="dropdown-item" href="{{path("app_logout")}}">
+							Déconnexion
+						</a>
+					{% endif %}
+				</div>
+				{% else %}
+					<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user"></i>
+						Connexion/Inscription
+					</span>
+					<div class="dropdown-menu" aria-labelledby="dropdown01">
+					<a class="dropdown-item " href="{{path("app_usager_new")}}">
+						Inscription
+					</a>
+					<a class="dropdown-item" href="{{path("app_login")}}">
+						Connexion
 					</a>
 				</div>
+				{% endif %}
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">

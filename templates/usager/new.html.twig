@@ -2,8 +2,26 @@
 
 {% block title %}New Usager{% endblock %}
 
-{% block body %}
+{# {% block body %}
     <h1>Create new Usager</h1>
 
     {{ include('usager/_form.html.twig') }}
+{% endblock %} #}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">{{ 'Créer un nouveau compte'|trans }}</div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <button type="submit" class="btn btn-primary mt-3">{{ 'Créer un compte'|trans }}</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
