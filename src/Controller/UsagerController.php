@@ -19,13 +19,14 @@ use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 )]
 class UsagerController extends AbstractController
 {
-    #[Route('/', name: 'app_usager_index', methods: ['GET'])]
+    #[Route('/compte', name: 'app_usager_index', methods: ['GET'])]
     public function index(UsagerRepository $usagerRepository): Response
     {
         
+        $user = $this->getUser();
 
         return $this->render('usager/index.html.twig', [
-            'usagers' => $usagerRepository->find(1)
+            'usagers' => $user
         ]);
     }
 

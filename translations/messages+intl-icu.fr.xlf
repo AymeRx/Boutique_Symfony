@@ -37,6 +37,34 @@
         <source>templates.navbar.boutique</source>
         <target>Boutique</target>
       </trans-unit>
+      <trans-unit id="QgF3pE3" resname="templates.navbar.inscription">
+        <source>templates.navbar.inscription</source>
+        <target>Inscription</target>
+      </trans-unit>
+      <trans-unit id="eIDayew" resname="templates.navbar.connexion">
+        <source>templates.navbar.connexion</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="lev0p7H" resname="templates.navbar.moncompte">
+        <source>templates.navbar.moncompte</source>
+        <target>Mon Compte</target>
+      </trans-unit>
+      <trans-unit id="MM3P7Ot" resname="templates.navbar.mescommandes">
+        <source>templates.navbar.mescommandes</source>
+        <target>Mes Commandes</target>
+      </trans-unit>
+      <trans-unit id="rNx6WFC" resname="templates.navbar.deconnexion">
+        <source>templates.navbar.deconnexion</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="oQfupuy" resname="Créer un nouveau compte">
+        <source>Créer un nouveau compte</source>
+        <target>Créer un nouveau compte</target>
+      </trans-unit>
+      <trans-unit id="piivmAm" resname="Créer un compte">
+        <source>Créer un compte</source>
+        <target>Créer un compte</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

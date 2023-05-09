@@ -40,9 +40,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/(%app.supported_locales%)/admin, roles: ROLE_ADMIN }
-        # - { path: ^/(%app.supported_locales%)/usager/, roles: ROLE_CLIENT }
-        - { path: app_usager_index , roles: ROLE_CLIENT }
-        - { path: app_panier_commander , roles: ROLE_CLIENT }
+        - { path: ^/(%app.supported_locales%)/usager/compte, roles: ROLE_CLIENT }
+        - { path: ^/(%app.supported_locales%)/panier/commander, roles: ROLE_CLIENT }
+        - { path: ^/(%app.supported_locales%)/panier/commande, roles: ROLE_CLIENT }
 
 when@test:
     security:
